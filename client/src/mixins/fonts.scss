@@ -1,0 +1,54 @@
+$main_font: "Nunito Sans";
+$secondary_font: "Mandali";
+$heading_font: "Fuggles";
+// font-size: calc(10px + 2vmin);
+
+@mixin heading {
+  font-family: $main_font;
+  letter-spacing: 0.1em;
+  margin: 0.1em 0;
+  color: $white;
+}
+
+h1 {
+  font-family: $heading_font;
+  letter-spacing: 0.1em;
+  font-size: 140px;
+  margin: 0.15em 0;
+  color: $white;
+}
+
+h2,
+h3,
+h4 {
+  @include heading;
+}
+
+h2 {
+  font-size: 30px;
+}
+h4 {
+  font-size: 28px;
+}
+
+p,
+li {
+  font-family: $main_font;
+  font-size: 18px;
+}
+
+li,
+a {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: $main_blue;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+ul {
+  list-style-type: none;
+}

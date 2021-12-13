@@ -1,0 +1,119 @@
+$border_weight: 2px;
+
+@mixin animation {
+  transition: all ease-in-out 1.2s;
+}
+
+@keyframes widthSlide {
+  0% {
+    width: 30%;
+  }
+  100% {
+    width: 33.3%;
+  }
+}
+
+$border: $border_weight solid transparent;
+
+@mixin borderAnimation {
+  opacity: 0;
+  content: "";
+  position: absolute;
+  height: $border_weight;
+  left: 0;
+  width: 99.5%;
+}
+
+@mixin borderAnimationHover {
+  opacity: 1;
+  transform: translateX(0);
+  height: 100%;
+  border-color: white;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.boxes {
+  width: 100%;
+  min-height: 50vh;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  background-color: rgba(26, 57, 88, 0.9);
+  color: white;
+  padding: 10vh 10%;
+}
+
+.box {
+  @include animation;
+
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  width: 33.3%;
+  height: 50vh;
+  max-height: 450px;
+  border-radius: 0.08em;
+  margin: 0.5em 0;
+  cursor: pointer;
+  animation: widthSlide 1s ease-in;
+  animation: fadeIn 1s ease-in-out;
+  -webkit-animation: widthSlide 1s ease-in;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  h4 {
+    @include animation;
+    opacity: 0;
+  }
+  h2 {
+    color: white;
+    text-transform: uppercase;
+    margin-top: 1em;
+  }
+  &:before {
+    transform: translateX(100%);
+    bottom: 0;
+    border-bottom: $border;
+    border-left: $border;
+    @include borderAnimation;
+  }
+  &:after {
+    transform: translateX(-100%);
+    top: 0;
+    border-top: $border;
+    border-right: $border;
+    @include borderAnimation;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    h4 {
+      background-color: rgba(26, 57, 88, 0.5);
+      padding: 70%;
+      opacity: 1;
+      color: white;
+    }
+    &:before {
+      transition: 0.1s transform linear, 0.1s height linear 0.1s;
+      @include borderAnimationHover;
+    }
+    &:after {
+      transition: 0.1s transform linear 0.2s, 0.1s height linear 0.3s;
+      @include borderAnimationHover;
+    }
+  }
+}

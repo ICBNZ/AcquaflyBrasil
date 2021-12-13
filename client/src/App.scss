@@ -1,0 +1,45 @@
+@import "mixins/colors.scss";
+@import "mixins/fonts.scss";
+@import "components/Navigation/navigation.scss";
+@import "components/Boxes/boxes.scss";
+@import "components/Info/info.scss";
+@import "components/Header/header.scss";
+@import "components/Video/Video.scss";
+@import "components/Reviews/reviews.scss";
+@import "components/Footer/footer.scss";
+
+@font-face {
+  font-family: "Sun Valley";
+  src: url("assets/fonts/SunValley.woff2") format("woff2"),
+    url("assets/fonts/SunValley.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+* {
+  box-sizing: border-box;
+}
+
+.main {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main_content {
+  position: absolute;
+  top: 80vh;
+  z-index: 2;
+}
